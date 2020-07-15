@@ -57,7 +57,7 @@ async (req, res) => {
       user: {
         id: user.id
       }
-    }
+    };
 
     jwt.sign(
       payload, 
