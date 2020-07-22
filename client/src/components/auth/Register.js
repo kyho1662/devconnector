@@ -1,8 +1,12 @@
 import React, { Fragment, useState } from 'react';
-import { Link } from 'react-router-dom';
-import axios from 'axios';
+import { connect } from 'react-redux';
+import { Link, Redirect } from 'react-router-dom';
+import { setAlert } from '../../actions/alert';
+import { register } from '../../actions/auth';
+import PropTypes from 'prop-types';
 
-const Register = () => {
+
+const Register = ({ setAlert, register, isAuthenticated }) => {
   const [formData, setFormData] = useState({
     name:'',
     email: '',
@@ -17,28 +21,14 @@ const Register = () => {
   const onSubmit = async e => {
     e.preventDefault();
     if(password !== password2) {
-      console.log('Passwords do not match');
+      setAlert('Passwords do not match', 'danger');
     } else {
-      const newUser = {
-        name, email, password
-      }
-
-      try {
-        const config = {
-          headers: {
-            'Content-Type': 'application/json'
-          }
-        }
-
-        const body = JSON.stringify(newUser);
-
-        const res = await axios.post('/api/users', body, config);
-        console.log(res.data);
-      } catch (err) {
-        console.error(err.response.data)
-      }
-
+      register({ name, email, password });
     }
+  }
+  
+  if(isAuthenticated) {
+      return <Redirect to='/dashboard' />
   }
 
   return (
@@ -82,7 +72,18 @@ const Register = () => {
         이미 계정이 있으십니까? <Link to="/login">로그인</Link>
       </p>
     </Fragment>
-  )
+  );
+};
+
+Register.propTypes = {
+  setAlert: PropTypes.func.isRequired,
+  register: PropTypes.func.isRequired,
+  isAuthenticated: PropTypes.bool,
+
 }
 
-export default Register
+const mapStateToProps = state => ({
+  isAuthenticated: state.auth.isAuthenticated
+});
+
+export default connect(mapStateToProps, { setAlert, register })(Register);
