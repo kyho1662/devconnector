@@ -24,5 +24,13 @@
   "devDependencies": {
     "concurrently": "^5.2.0",
     "nodemon": "^2.0.4"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kyho1662/devconnector.git"
+  },
+  "bugs": {
+    "url": "https://github.com/kyho1662/devconnector/issues"
+  },
+  "homepage": "https://github.com/kyho1662/devconnector#readme"
 }
