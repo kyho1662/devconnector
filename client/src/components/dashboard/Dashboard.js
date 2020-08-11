@@ -13,15 +13,15 @@ const Dashboard = ({
 }) => {
   useEffect(() => {
     getCurrentProfile();
-  }, []);
+  }, [getCurrentProfile]);
 
   return loading && profile === null ? (
     <Spinner />
   ) : (
     <Fragment>
-      <h1 className="large text-primary">Dashboard</h1>
+      <h1 className="large text-primary">대시보드</h1>
       <p className="lead">
-        <i className="fas fa-user"></i> Welcome {user && user.name}
+        <i className="fas fa-user"></i> 환영합니다. {user && user.name} 님
       </p>
       {profile !== null ? (
         <Fragment>
