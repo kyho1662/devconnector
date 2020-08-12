@@ -10,7 +10,7 @@ const DashboardActions = () => {
       <Link to="/add-experience" class="btn btn-light">
         <i class="fab fa-black-tie text-primary"></i> 경력 추가
       </Link>
-      <Link to="add-education.html" class="btn btn-light">
+      <Link to="/add-education" class="btn btn-light">
         <i class="fas fa-graduation-cap text-primary"></i> 학력 추가
       </Link>
     </div>
