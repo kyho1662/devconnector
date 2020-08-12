@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 
 const Experience = ({ experience }) => {
   const experiences = experience.map((exp) => (
-    <td key={exp._id}>
+    <tr key={exp._id}>
       <td>{exp.company}</td>
       <td className="hide-sm">{exp.title}</td>
       <td>
@@ -19,17 +19,17 @@ const Experience = ({ experience }) => {
       <td>
         <button className="btn btn-danger">삭제</button>
       </td>
-    </td>
+    </tr>
   ));
   return (
     <Fragment>
       <h2 className="my-2">경력</h2>
-      <table className="tabe">
+      <table className="table">
         <thead>
           <tr>
-            <th>Company</th>
-            <th ClassName="hide-sm">Title</th>
-            <th ClassName="hide-sm">Years</th>
+            <th>회사</th>
+            <th ClassName="hide-sm">직책</th>
+            <th ClassName="hide-sm">기간</th>
             <th />
           </tr>
         </thead>
