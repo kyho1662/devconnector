@@ -8,6 +8,9 @@ const Navbar = ({ auth: { isAuthenticated, loading }, logout }) => {
   const authLinks = (
     <ul>
       <li>
+        <Link to="/profiles">프로그래머</Link>
+      </li>
+      <li>
         <Link to="/dashboard">
           <i className="fas fa-user"></i>{' '}
           <span className="hide-sm">대시보드</span>
@@ -24,7 +27,7 @@ const Navbar = ({ auth: { isAuthenticated, loading }, logout }) => {
   const guestLinks = (
     <ul>
       <li>
-        <a href="#!">개발자</a>
+        <Link to="/profiles">프로그래머</Link>
       </li>
       <li>
         <Link to="/register">회원가입</Link>
