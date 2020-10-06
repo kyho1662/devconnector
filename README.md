@@ -1,4 +1,4 @@
-# Devconnector
+# Devcon
 
 ## MERN Stack SNS Demo
 
